@@ -1,4 +1,14 @@
-// Post.js - Mongoose model for blog posts
+import mongoose from 'mongoose';
+
+const postSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
+  createdAt: { type: Date, default: Date.now }
+});
+
+export default mongoose.model('Post', postSchema);
+
 
 const mongoose = require('mongoose');
 
